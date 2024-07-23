@@ -1,5 +1,5 @@
-import PaymentServices.OnSiteOrderRegisterService;
-import PaymentServices.OnlineOrderRegisterService;
+import PaymentServices.OnSiteOrderService;
+import PaymentServices.OnlineOrderService;
 import PaymentServices.OrderPaymentService;
 import PaymentServices.OrderRegisterService;
 
@@ -40,11 +40,11 @@ public class Main {
         System.out.println("Enter Your Payment Method (1 for online and 2 for on-site):");
         customerAnswerForPaymentMethod = scanner.nextInt();
         if(customerAnswerForPaymentMethod==1){
-            orderRegisterService = new OnlineOrderRegisterService();
-            orderPaymentService = new OnlineOrderRegisterService();
+            orderRegisterService = new OnlineOrderService();
+            orderPaymentService = new OnlineOrderService();
         } else if(customerAnswerForPaymentMethod==2){
-            orderRegisterService = new OnSiteOrderRegisterService();
-            orderPaymentService = new OnSiteOrderRegisterService();
+            orderRegisterService = new OnSiteOrderService();
+            orderPaymentService = new OnSiteOrderService();
         } else {
             System.out.println("Invalid Method");
             return;
