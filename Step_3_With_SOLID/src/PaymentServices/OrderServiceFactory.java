@@ -20,6 +20,7 @@ public class OrderServiceFactory {
         return switch (orderType) {
             case 1 -> OnSiteOrderService.getInstance();
             case 2 -> OnlineOrderService.getInstance();
+            case 3 -> PhoneOrderService.getInstance();
             default -> null;
         };
     }
