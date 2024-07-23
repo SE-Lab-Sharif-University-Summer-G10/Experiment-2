@@ -1,7 +1,4 @@
-import PaymentServices.OnSiteOrderService;
-import PaymentServices.OnlineOrderService;
-import PaymentServices.OrderPaymentService;
-import PaymentServices.OrderRegisterService;
+import PaymentServices.*;
 
 import java.util.Scanner;
 
@@ -9,12 +6,12 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner= new Scanner(System.in);
-        OrderRegisterService orderRegisterService = null;
-        OrderPaymentService orderPaymentService = null;
+        OrderServiceFactory orderServiceFactory = OrderServiceFactory.getInstance();
+        OrderService orderService;
         String customerName;
         Order order;
-        int customerAnswerForOrder=0;
-        int customerAnswerForPaymentMethod=0;
+        int customerAnswerForOrder = 0;
+        int customerAnswerForPaymentMethod;
 
         System.out.println("Enter Customer Name : ");
         customerName = scanner.nextLine();
@@ -37,23 +34,20 @@ public class Main {
         }
 
         //Step2 : Select Payment Method
-        System.out.println("Enter Your Payment Method (1 for online and 2 for on-site):");
+        System.out.println("Enter Your Payment Method:");
+        System.out.println("For online payment enter 1.");
+        System.out.println("For on-site payment enter 2.");
         customerAnswerForPaymentMethod = scanner.nextInt();
-        if(customerAnswerForPaymentMethod==1){
-            orderRegisterService = new OnlineOrderService();
-            orderPaymentService = new OnlineOrderService();
-        } else if(customerAnswerForPaymentMethod==2){
-            orderRegisterService = new OnSiteOrderService();
-            orderPaymentService = new OnSiteOrderService();
-        } else {
+        orderService = orderServiceFactory.createOrderService(customerAnswerForPaymentMethod);
+        if (orderService == null){
             System.out.println("Invalid Method");
             return;
         }
-        orderRegisterService.orderRegister(customerName);
+        orderService.orderRegister(customerName);
 
         //Step3 : pay price
         System.out.println("Pay Price:");
-        orderPaymentService.orderPayment(order.getTotalPrice());
+        orderService.orderPayment(order.getTotalPrice());
 
         //Finally Print Bill
         System.out.println(order);
