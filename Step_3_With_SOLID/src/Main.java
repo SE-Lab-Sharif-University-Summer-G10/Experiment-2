@@ -1,6 +1,7 @@
-import PaymentServices.OnSiteOrderService;
-import PaymentServices.OnlineOrderService;
-import PaymentServices.OrderService;
+import PaymentServices.OnSiteOrderRegisterService;
+import PaymentServices.OnlineOrderRegisterService;
+import PaymentServices.OrderPaymentService;
+import PaymentServices.OrderRegisterService;
 
 import java.util.Scanner;
 
@@ -8,7 +9,8 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner= new Scanner(System.in);
-        OrderService orderService = null;
+        OrderRegisterService orderRegisterService = null;
+        OrderPaymentService orderPaymentService = null;
         String customerName;
         Order order;
         int customerAnswerForOrder=0;
@@ -35,22 +37,23 @@ public class Main {
         }
 
         //Step2 : Select Payment Method
-        System.out.println("Enter Your Payment Method (1 for online and 2 for on-site and 3 for phone):");
+        System.out.println("Enter Your Payment Method (1 for online and 2 for on-site):");
         customerAnswerForPaymentMethod = scanner.nextInt();
         if(customerAnswerForPaymentMethod==1){
-            orderService = new OnlineOrderService();
+            orderRegisterService = new OnlineOrderRegisterService();
+            orderPaymentService = new OnlineOrderRegisterService();
         } else if(customerAnswerForPaymentMethod==2){
-            orderService = new OnSiteOrderService();
+            orderRegisterService = new OnSiteOrderRegisterService();
+            orderPaymentService = new OnSiteOrderRegisterService();
         } else {
             System.out.println("Invalid Method");
             return;
         }
-        orderService.orderRegister(customerName);
+        orderRegisterService.orderRegister(customerName);
 
         //Step3 : pay price
         System.out.println("Pay Price:");
-        orderService.orderPayment(order.getTotalPrice());
-        orderService.orderPayment(order.getTotalPrice());
+        orderPaymentService.orderPayment(order.getTotalPrice());
 
         //Finally Print Bill
         System.out.println(order);

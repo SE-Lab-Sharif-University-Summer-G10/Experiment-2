@@ -1,6 +1,5 @@
 package PaymentServices;
 
-public interface OrderService {
-    public void orderPayment(int foodPrice);
+public interface OrderRegisterService {
     public void orderRegister(String customerName);
 }

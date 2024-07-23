@@ -1,6 +1,6 @@
 package PaymentServices;
 
-public class OnlineOrderService implements OrderService {
+public class OnlineOrderRegisterService implements OrderRegisterService, OrderPaymentService {
     @Override
     public void orderRegister(String customerName) {
         System.out.println("online order registered for " + customerName);

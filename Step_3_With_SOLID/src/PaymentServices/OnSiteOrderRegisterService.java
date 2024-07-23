@@ -1,6 +1,6 @@
 package PaymentServices;
 
-public class OnSiteOrderService implements OrderService {
+public class OnSiteOrderRegisterService implements OrderRegisterService, OrderPaymentService {
     @Override
     public void orderRegister(String customerName) {
         System.out.println("on-Site order registered for " + customerName);
