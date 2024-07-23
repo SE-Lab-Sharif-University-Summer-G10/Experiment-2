@@ -1,7 +1,4 @@
-import PaymentServices.OnSiteOrderService;
-import PaymentServices.OnlineOrderService;
-import PaymentServices.OrderPaymentService;
-import PaymentServices.OrderRegisterService;
+import PaymentServices.*;
 
 import java.util.Scanner;
 
@@ -45,6 +42,9 @@ public class Main {
         } else if(customerAnswerForPaymentMethod==2){
             orderRegisterService = new OnSiteOrderService();
             orderPaymentService = new OnSiteOrderService();
+        } else if(customerAnswerForPaymentMethod==3){
+            orderRegisterService = new PhoneOrderService();
+            orderPaymentService = new PhoneOrderService();
         } else {
             System.out.println("Invalid Method");
             return;
