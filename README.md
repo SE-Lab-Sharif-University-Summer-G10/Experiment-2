@@ -2,7 +2,7 @@
 
 <div dir='rtl'>
 
-## گام اول
+## آزمایش ۱
 | ردیف | محل اعمال تغییرات    | عنوان تغییر                  | شرحی کوتاه از تغییر                               |
 |------|----------------------|------------------------------|---------------------------------------------------|
 | ۱    | Order Service        | افزودن تابع پردات تلفنی      | افزودن یک تابع void با عنوان phone Order Payment  |
@@ -15,15 +15,7 @@
 | ۸    | Main                 | افزودن امکان ثبت سفارش تلفنی | افزودن شرط جدید برای امکان ثبت سفارش تلفنی        |
 **مجموع تعداد تغییرات**: ۸
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
+## آزمایش ۲
 <table class="tg"><thead>
   <tr>
     <th class="tg-0pky" rowspan="2">اصل ۱<br>Single Responsibility Principle</th>
@@ -102,3 +94,6 @@
     <td class="tg-0pky">با پیاده سازی واسط‌های نامبرده شده، کافیست که برای استفاده&nbsp;&nbsp;از یک روش Order، از یک Factory method استفاده کنیم و اشیاء را از نوع واسط نگه داریم</td>
   </tr>
 </tbody></table>
+
+## آزمایش ۴
+صرفا می‌بایستی که یک case جدید به OrderServiceFactory خود اضافه کنیم و از طرفی فقط هم دو تابع موجود در واسط را برای PhoneOrderService پیاده کنیم. در مجموع به ۳ تغییر نیاز داریم. البته یک تغییر هم در بخش UI نیاز است که امکان انتخاب پرداخت تلفنی هم فعال شود.

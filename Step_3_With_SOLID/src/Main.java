@@ -37,6 +37,7 @@ public class Main {
         System.out.println("Enter Your Payment Method:");
         System.out.println("For online payment enter 1.");
         System.out.println("For on-site payment enter 2.");
+        System.out.println("For payment over phone enter 3.");
         customerAnswerForPaymentMethod = scanner.nextInt();
         orderService = orderServiceFactory.createOrderService(customerAnswerForPaymentMethod);
         if (orderService == null){
